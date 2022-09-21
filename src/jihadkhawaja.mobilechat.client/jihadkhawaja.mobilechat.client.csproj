@@ -10,7 +10,7 @@
 	<Copyright>Copyright © 2022 jihadkhawaja</Copyright>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<RepositoryUrl>https://github.com/jihadkhawaja/MobileChat</RepositoryUrl>
-	<PackageProjectUrl>https://github.com/jihadkhawaja/MobileChat</PackageProjectUrl>
+	<PackageProjectUrl>https://github.com/jihadkhawaja/mobilechat.client</PackageProjectUrl>
 	<PackageIcon>favico.png</PackageIcon>
 	<PackageTags>asp.net, blazor, signalr, chat, client</PackageTags>
 	<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
