@@ -83,6 +83,5 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Publish to Nuegt
-      if: startsWith(github.ref, 'refs/heads/release')
       run: nuget push nugetPackage/* -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
 
