@@ -10,7 +10,7 @@ Client chat solution NuGet package.
 Find everything you need to get started at the [Wiki](https://github.com/jihadkhawaja/mobilechat.client/wiki)
 
 ## Samples
-- [MobileChat](https://github.com/jihadkhawaja/MobileChat)
+Find all samples [here](https://github.com/jihadkhawaja/mobilechat.client/network/dependents)
 
 ### Contribution
 Feel free to fork and **contribute** or **open an issue**. All contributions are welcome!
