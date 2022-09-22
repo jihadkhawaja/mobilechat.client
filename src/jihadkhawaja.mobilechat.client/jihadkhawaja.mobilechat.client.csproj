@@ -1,10 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    	<TargetFramework>net6.0</TargetFramework>
+    	<ImplicitUsings>enable</ImplicitUsings>
+    	<Nullable>enable</Nullable>
 	<Version>0.0.11</Version>
+  	<PackageReadmeFile>../../README.md</PackageReadmeFile>
 	<Authors>jihadkhawaja</Authors>
 	<Description>Chat client solution for ASP.NET server</Description>
 	<Copyright>Copyright © 2022 jihadkhawaja</Copyright>
