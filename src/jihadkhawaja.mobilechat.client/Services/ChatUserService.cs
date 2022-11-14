@@ -36,6 +36,16 @@ namespace jihadkhawaja.mobilechat.client.Services
             return await MobileChat.SignalR.HubConnection.InvokeAsync<string>("GetUserDisplayName", userId);
         }
 
+        public async Task<string?> GetUserDisplayNameByEmail(string email)
+        {
+            if (MobileChat.SignalR is null)
+            {
+                return null;
+            }
+
+            return await MobileChat.SignalR.HubConnection.InvokeAsync<string>("GetUserDisplayNameByEmail", email);
+        }
+
         public async Task<string?> GetUserUsername(Guid userId)
         {
             if (MobileChat.SignalR is null)
