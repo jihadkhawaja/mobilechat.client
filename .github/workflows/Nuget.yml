@@ -57,7 +57,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     
     steps:  
-    #Push NuGet package to GitHub packages
+    # Push NuGet package to GitHub packages
     - name: Download nuget package artifact
       uses: actions/download-artifact@v1.0.0
       with:
@@ -69,7 +69,7 @@ jobs:
       if: needs.build.outputs.CommitsSinceVersionSource > 0
       run: dotnet nuget push nugetPackage/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
     
-    #Create release
+    # Create release
     - name: Create Release
       # needs.build.outputs.CommitsSinceVersionSource > 0
       # Only release if there has been a commit/version change
