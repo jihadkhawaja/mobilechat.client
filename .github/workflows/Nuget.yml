@@ -20,7 +20,7 @@ jobs:
       with:
         fetch-depth: 0 
         
-    # calculate the new version with GitVersion  
+    # Calculate the new version with GitVersion  
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.7
       with:
@@ -33,7 +33,7 @@ jobs:
         echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
         echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}"
     
-    # Build/pack the project
+    # Build/Pack the project
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
