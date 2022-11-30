@@ -10,7 +10,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("AddFriend", friendEmailorusername);
@@ -20,7 +20,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("RemoveFriend", friendEmailorusername);
@@ -30,7 +30,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<string>("GetUserDisplayName", userId);
@@ -40,7 +40,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<string>("GetUserDisplayNameByEmail", email);
@@ -50,7 +50,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<string>("GetUserUsername", userId);
@@ -60,7 +60,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("GetUserIsFriend", userId, friendId);
@@ -70,7 +70,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<UserFriend[]>("GetUserFriends", userId);
@@ -80,7 +80,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<UserFriend[]>("GetUserFriendRequests", userId);
@@ -90,7 +90,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("AcceptFriend", friendId);
@@ -100,7 +100,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("DenyFriend", friendId);

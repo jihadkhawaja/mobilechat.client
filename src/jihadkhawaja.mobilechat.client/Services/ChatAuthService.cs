@@ -9,7 +9,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<object?>("SignUp", displayname, username, email, password);
@@ -19,17 +19,27 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<object>("SignIn", emailorusername, password);
+        }
+
+        public async Task<string> RefreshSession(string token)
+        {
+            if (MobileChat.SignalR is null)
+            {
+                throw new NullReferenceException("MobileChat SignalR not initialized");
+            }
+
+            return await MobileChat.SignalR.HubConnection.InvokeAsync<string>("RefreshSession", token);
         }
 
         public async Task<bool> ChangePassword(string emailorusername, string oldpassword, string newpassword)
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("ChangePassword", emailorusername, oldpassword, newpassword);
