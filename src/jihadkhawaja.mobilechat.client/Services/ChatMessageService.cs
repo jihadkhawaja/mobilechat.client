@@ -10,7 +10,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("SendMessage", message);
@@ -20,7 +20,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<Message[]>("ReceiveMessageHistory", channelid);
@@ -30,7 +30,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return null;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<Message[]>("ReceiveMessageHistoryRange", channelid, index, range);
@@ -40,7 +40,7 @@ namespace jihadkhawaja.mobilechat.client.Services
         {
             if (MobileChat.SignalR is null)
             {
-                return false;
+                throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("message", message);
