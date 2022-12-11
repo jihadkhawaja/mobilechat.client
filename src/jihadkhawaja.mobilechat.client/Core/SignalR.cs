@@ -72,7 +72,11 @@ namespace jihadkhawaja.mobilechat.client.Core
 
             return Task.CompletedTask;
         }
-
+        /// <summary>
+        /// Connect to the server
+        /// </summary>
+        /// <param name="cts"></param>
+        /// <returns>true when connected successfully</returns>
         public async Task<bool> Connect(CancellationTokenSource? cts = default)
         {
             try
@@ -107,6 +111,10 @@ namespace jihadkhawaja.mobilechat.client.Core
 
             return false;
         }
+        /// <summary>
+        /// Disconnect from the connected server
+        /// </summary>
+        /// <returns>true when fully disconnected</returns>
         public async Task<bool> Disconnect()
         {
             try

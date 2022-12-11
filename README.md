@@ -4,7 +4,9 @@
 Client chat solution NuGet package.
 
 # NuGet
-[Add Package](https://www.nuget.org/packages/jihadkhawaja.mobilechat.client/)
+[Client Package](https://www.nuget.org/packages/jihadkhawaja.mobilechat.client/)
+
+[Server Package](https://www.nuget.org/packages/jihadkhawaja.mobilechat.server/)
 
 # Documentation
 Find everything you need to get started at the [Wiki](https://github.com/jihadkhawaja/mobilechat.client/wiki)
