@@ -105,5 +105,15 @@ namespace jihadkhawaja.mobilechat.client.Services
 
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("DenyFriend", friendId);
         }
+
+        public async Task<IEnumerable<User>?> SearchUser(string query)
+        {
+            if (MobileChat.SignalR is null)
+            {
+                throw new NullReferenceException("MobileChat SignalR not initialized");
+            }
+
+            return await MobileChat.SignalR.HubConnection.InvokeAsync<IEnumerable<User>?>("SearchUser", query);
+        }
     }
 }
