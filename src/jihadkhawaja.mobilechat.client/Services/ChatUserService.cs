@@ -113,7 +113,7 @@ namespace jihadkhawaja.mobilechat.client.Services
                 throw new NullReferenceException("MobileChat SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<IEnumerable<User>?>("SearchUser", query);
+            return await MobileChat.SignalR.HubConnection.InvokeAsync<IEnumerable<User>?>("SearchUser", query, maxResult);
         }
     }
 }
