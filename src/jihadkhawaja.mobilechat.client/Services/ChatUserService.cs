@@ -106,7 +106,7 @@ namespace jihadkhawaja.mobilechat.client.Services
             return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("DenyFriend", friendId);
         }
 
-        public async Task<IEnumerable<User>?> SearchUser(string query)
+        public async Task<IEnumerable<User>?> SearchUser(string query, int maxResult = 20)
         {
             if (MobileChat.SignalR is null)
             {
