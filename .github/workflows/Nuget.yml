@@ -67,8 +67,8 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        tag: v${{ needs.build.outputs.Version }}
-        name: Release v${{ needs.build.outputs.Version }}
+        tag: ${{ needs.build.outputs.Version }}
+        name: Release ${{ needs.build.outputs.Version }}
         artifacts: "nugetPackage/*"
         token: ${{ secrets.GITHUB_TOKEN }}
       
