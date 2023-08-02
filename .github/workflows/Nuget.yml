@@ -71,8 +71,8 @@ jobs:
     runs-on: ubuntu-latest 
     needs: build
     steps:
-      - name: Retrieve artifact
-        uses: actions/download-artifact@v2
+      - name: Download nuget package artifact
+        uses: actions/download-artifact@v1.0.0
         with:
           name: nugetPackage
       - name: Create Release
@@ -80,5 +80,5 @@ jobs:
         with:
           tag: ${{ needs.build.outputs.VERSION }}
           name: Release ${{ needs.build.outputs.VERSION }}
-          artifacts: "nugetPackage/*"
+          artifacts: nugetPackage
           token: ${{ secrets.GITHUB_TOKEN }}
