@@ -39,7 +39,10 @@ jobs:
       id: output-version
       run: |
         echo "VERSION=${{ env.VERSION }}" >> $GITHUB_OUTPUT
-        echo  ${{ needs.get-version.outputs.VERSION }}
+        
+    - name: test
+      run: |
+         echo ${{ needs.build.outputs.VERSION }}
     
     #Build/pack the project
     - name: Setup .NET
