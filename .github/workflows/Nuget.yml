@@ -36,6 +36,7 @@ jobs:
       id: output-version
       run: |
         echo "VERSION=${{ env.VERSION }}" >> $GITHUB_OUTPUT
+        echo  ${{ needs.get-version.outputs.VERSION }}
     
     #Build/pack the project
     - name: Setup .NET
@@ -66,8 +67,8 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        tag: ${{ needs.build.outputs.Version }}
-        name: Release ${{ needs.build.outputs.Version }}
+        tag: ${{ needs.get-version.outputs.VERSION }}
+        name: Release ${{ needs.get-version.outputs.VERSION }}
         artifacts: "nugetPackage/*"
         token: ${{ secrets.GITHUB_TOKEN }}
       
