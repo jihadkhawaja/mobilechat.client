@@ -40,10 +40,6 @@ jobs:
       run: |
         echo "VERSION=${{ env.VERSION }}" >> $GITHUB_OUTPUT
         
-    - name: test
-      run: |
-         echo ${{ needs.build.outputs.VERSION }}
-    
     #Build/pack the project
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
@@ -69,14 +65,16 @@ jobs:
     - name: Push package to GitHub packages
       run: dotnet nuget push nugetPackage/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
       
-    #Create release
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ needs.build.outputs.VERSION }}
-        name: Release ${{ needs.build.outputs.VERSION }}
-        artifacts: "nugetPackage/*"
-        token: ${{ secrets.GITHUB_TOKEN }}
-      
     - name: Publish nuget package
       run: dotnet nuget push nugetPackage/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+  Release: 
+    runs-on: ubuntu-latest 
+    needs: build
+    steps:
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ needs.build.outputs.VERSION }}
+          name: Release ${{ needs.build.outputs.VERSION }}
+          artifacts: "nugetPackage/*"
+          token: ${{ secrets.GITHUB_TOKEN }}
