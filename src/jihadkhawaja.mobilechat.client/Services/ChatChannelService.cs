@@ -8,82 +8,82 @@ namespace jihadkhawaja.mobilechat.client.Services
     {
         public async Task<Channel?> CreateChannel(params string[] usernames)
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<Channel>("CreateChannel", usernames);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<Channel>("CreateChannel", usernames);
         }
 
         public async Task<bool> AddChannelUsers(Guid channelId, params string[] friendEmailorusername)
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("AddChannelUsers", channelId, friendEmailorusername);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<bool>("AddChannelUsers", channelId, friendEmailorusername);
         }
 
         public async Task<User[]?> GetChannelUsers(Guid channelid)
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<User[]>("GetChannelUsers", channelid);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<User[]>("GetChannelUsers", channelid);
         }
 
         public async Task<Channel[]?> GetUserChannels()
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<Channel[]>("GetUserChannels");
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<Channel[]>("GetUserChannels");
         }
 
         public async Task<bool> ChannelContainUser(Guid channelId, Guid userId)
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("ChannelContainUser", channelId, userId);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<bool>("ChannelContainUser", channelId, userId);
         }
 
         public async Task<bool> IsChannelAdmin(Guid channelId, Guid userId)
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("IsChannelAdmin", channelId, userId);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<bool>("IsChannelAdmin", channelId, userId);
         }
 
         public async Task<bool> DeleteChannel(Guid channelId)
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("DeleteChannel", channelId);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<bool>("DeleteChannel", channelId);
         }
 
         public async Task<bool> LeaveChannel(Guid channelId)
         {
-            if (MobileChat.SignalR is null)
+            if (MobileChatClient.SignalR is null)
             {
-                throw new NullReferenceException("MobileChat SignalR not initialized");
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChat.SignalR.HubConnection.InvokeAsync<bool>("LeaveChannel", channelId);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<bool>("LeaveChannel", channelId);
         }
     }
 }

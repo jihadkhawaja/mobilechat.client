@@ -1,13 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using jihadkhawaja.mobilechat.client.Core;
 using jihadkhawaja.mobilechat.client.Interfaces;
+using jihadkhawaja.mobilechat.client.Services;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace jihadkhawaja.mobilechat.client.Services.Extension
+namespace jihadkhawaja.mobilechat.client
 {
-    public static class MobileChatServiceEx
+    public static class MobileChatClient
     {
         public static IServiceCollection AddMobileChatServices(this IServiceCollection services)
         {
@@ -18,6 +16,15 @@ namespace jihadkhawaja.mobilechat.client.Services.Extension
             services.AddScoped<IChatMessage, ChatMessageService>();
 
             return services;
+        }
+
+        /// <summary>
+        /// MobileChat SignalR Abstraction
+        /// </summary>
+        public static SignalR? SignalR { get; private set; }
+        public static void Initialize(string url, string token = "")
+        {
+            SignalR = new(url, token);
         }
     }
 }

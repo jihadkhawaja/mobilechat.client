@@ -20,5 +20,20 @@ namespace jihadkhawaja.mobilechat.client.Models
         [Required]
         public string? Content { get; set; }
         public DateTime? DateCreated { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            if(obj.GetType() == typeof(Message))
+            {
+                Message msg = (Message)obj;
+
+                if(msg.Id == Id)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
