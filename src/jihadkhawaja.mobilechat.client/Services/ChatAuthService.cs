@@ -25,14 +25,14 @@ namespace jihadkhawaja.mobilechat.client.Services
             return await MobileChatClient.SignalR.HubConnection.InvokeAsync<object>("SignIn", emailorusername, password);
         }
 
-        public async Task<string> RefreshSession(string token)
+        public async Task<dynamic?> RefreshSession(string token)
         {
             if (MobileChatClient.SignalR is null)
             {
                 throw new NullReferenceException("MobileChatClient SignalR not initialized");
             }
 
-            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<string>("RefreshSession", token);
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<dynamic?>("RefreshSession", token);
         }
 
         public async Task<bool> ChangePassword(string emailorusername, string oldpassword, string newpassword)

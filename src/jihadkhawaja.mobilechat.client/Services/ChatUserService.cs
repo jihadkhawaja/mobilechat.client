@@ -1,7 +1,6 @@
 ﻿using jihadkhawaja.mobilechat.client.Interfaces;
 using jihadkhawaja.mobilechat.client.Models;
 using Microsoft.AspNetCore.SignalR.Client;
-using Microsoft.AspNetCore.SignalR.Protocol;
 
 namespace jihadkhawaja.mobilechat.client.Services
 {
@@ -37,6 +36,16 @@ namespace jihadkhawaja.mobilechat.client.Services
             return await MobileChatClient.SignalR.HubConnection.InvokeAsync<string>("GetUserDisplayName", userId);
         }
 
+        public async Task<string?> GetCurrentUserDisplayName()
+        {
+            if (MobileChatClient.SignalR is null)
+            {
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
+            }
+
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<string>("GetCurrentUserDisplayName");
+        }
+
         public async Task<string?> GetUserDisplayNameByEmail(string email)
         {
             if (MobileChatClient.SignalR is null)
@@ -55,6 +64,16 @@ namespace jihadkhawaja.mobilechat.client.Services
             }
 
             return await MobileChatClient.SignalR.HubConnection.InvokeAsync<string>("GetUserUsername", userId);
+        }
+
+        public async Task<string?> GetCurrentUserUsername()
+        {
+            if (MobileChatClient.SignalR is null)
+            {
+                throw new NullReferenceException("MobileChatClient SignalR not initialized");
+            }
+
+            return await MobileChatClient.SignalR.HubConnection.InvokeAsync<string>("GetCurrentUserUsername");
         }
 
         public async Task<bool> GetUserIsFriend(Guid userId, Guid friendId)
